@@ -6,7 +6,7 @@ function Graph(props){
         labels: Object.keys(props.input),
         datasets: [
           {
-            label: 'Price',
+            label: '가격',
             data: Object.values(props.input),
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(54, 162, 235, 1)',
@@ -28,7 +28,7 @@ function Graph(props){
       };
       
     useEffect(() => {
-        console.log(props.input)
+        //console.log(props.input)
     }, []);
 
     return(

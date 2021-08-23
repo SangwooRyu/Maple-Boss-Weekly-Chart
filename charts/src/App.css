@@ -1,3 +1,12 @@
+@import '~antd/dist/antd.css';
+
+@font-face {
+  font-family: 'MaplestoryOTFBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App {
   text-align: center;
 }
@@ -28,10 +37,6 @@
   color: #61dafb;
 }
 
-.title {
-  color: #000000;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,4 +44,49 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.header{
+  display: flex;
+  background-color: #ffffff;
+}
+
+.titleText {
+    font-size: 1.5em;
+    padding-right: 1em;
+    padding-left: 1em;
+    font-family: 'MaplestoryOTFBold';
+}
+
+.datePicker {
+  display: flex;
+  padding: 24px 50px;
+}
+
+.dataPickerTitle {
+  text-align: center;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: 1000;
+  font-size: 1.2em;
+  font-family: 'MaplestoryOTFBold';
 }
