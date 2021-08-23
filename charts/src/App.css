@@ -64,7 +64,8 @@
 }
 
 .header{
-  display: flex;
+  display: inline-flex;
+  flex: auto;
   background-color: #ffffff;
 }
 
