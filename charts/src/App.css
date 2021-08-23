@@ -64,8 +64,13 @@
 }
 
 .header{
-  display: inline-flex;
+  display: flex;
   background-color: #ffffff;
+}
+
+.menuItem {
+  display: flex;
+  flex: auto;
 }
 
 .titleText {

@@ -90,9 +90,9 @@ function App() {
     <Layout className="layout">
       <Header className = "header">
         <h2 className="titleText"> 메이플스토리 보스 결정 주간 차트 </h2>
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['weekly']} onClick={onChangeTab}>
-          <Menu.Item key='weekly'>주간 차트</Menu.Item>
-          <Menu.Item key='flow'>가격 변동</Menu.Item>
+        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['weekly']} onClick={onChangeTab} disabledOverflow={true}>
+          <Menu.Item key='weekly' className="menuItem">주간 차트</Menu.Item>
+          <Menu.Item key='flow' className="menuItem">가격 변동</Menu.Item>
         </Menu>
       </Header>
       {
