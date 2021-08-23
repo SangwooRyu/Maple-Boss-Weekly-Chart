@@ -10,7 +10,7 @@ function FlowGraphsPage(props){
 
     return(
         <div> 
-            {props.boss} {props.range}
+            {labels[props.boss]} {props.range}
         </div>
     );
 }

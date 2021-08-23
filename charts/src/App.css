@@ -65,7 +65,6 @@
 
 .header{
   display: inline-flex;
-  flex: auto;
   background-color: #ffffff;
 }
 
