@@ -80,7 +80,7 @@
     font-family: 'MaplestoryOTFBold';
 }
 
-.datePicker {
+.datePickerContainer {
   display: flex;
   padding: 24px 50px;
 }
@@ -106,4 +106,78 @@
 .flowBossDropdown,
 .flowRangeDropdown {
   margin-right: 24px;
+  width: 200px;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 630px){
+  .header{
+    display: flex;
+    background-color: #ffffff;
+    flex-direction: column;
+    height: 100%
+  }
+
+  .titleText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: calc(0.5rem + 2vmin);
+    font-family: 'MaplestoryOTFBold';
+  }
+
+  .tabs{
+    display: flex;
+    width: 100%;
+  }
+
+  .menuItem {
+    display: row;
+    flex: auto;
+    text-align: center;
+  }
+
+  .datePickerContainer {
+    display: block;
+    width: 100%;
+    flex-direction: column;
+    padding: 24px 50px;
+  }
+
+  .dataPickerTitle,
+  .flowBossPickerTitle,
+  .flowRangePickerTitle {
+    text-align: center;
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 1000;
+    font-size: calc(0.5rem + 2vmin);
+    font-family: 'MaplestoryOTFBold';
+  }
+
+  .datePicker {
+    width: 100%;
+  }
+
+  .flowOptionPicker {
+    display: block;
+    padding: 24px 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flowBossDropdown,
+  .flowRangeDropdown {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .optionButton {
+    display: block;
+    margin: 0 auto;
+  }
 }

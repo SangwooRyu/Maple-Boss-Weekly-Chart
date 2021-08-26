@@ -93,38 +93,38 @@ function App() {
 
   return (
     loading? <div /> :
-    <Layout className="layout">
+    <Layout>
       <Header className = "header">
-        <h2 className="titleText"> 메이플스토리 보스 결정 주간 차트 </h2>
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['weekly']} onClick={onChangeTab} disabledOverflow={true}>
+        <div className="titleText"> 메이플스토리 보스 결정 주간 차트 </div>
+        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['weekly']} onClick={onChangeTab} disabledOverflow={true} className="tabs">
           <Menu.Item key='weekly' className="menuItem">주간 차트</Menu.Item>
           <Menu.Item key='flow' className="menuItem">가격 변동</Menu.Item>
         </Menu>
       </Header>
       {
         tab === 'weekly'?
-        <>
-          <Content className="datePicker">
+        <div>
+          <Content className="datePickerContainer">
             <div className="dataPickerTitle"> 날짜 선택 </div>
-            <DatePicker defaultValue={date} onChange={onChangeDate}/>
+            <DatePicker defaultValue={date} onChange={onChangeDate} className="datePicker"/>
           </Content>
           <Content style={{ padding: '0px 50px' }}>
             <div className="site-layout-content">
               <GraphsPage date={date}/>
             </div>
           </Content>
-        </> :
+        </div> :
         <>
           <Content className="flowOptionPicker">
             <div className="flowBossPickerTitle"> 보스 선택 </div>
-            <Select defaultValue={boss.current} onSelect={onChangeBoss} style={{width: 200}} className="flowBossDropdown">
+            <Select defaultValue={boss.current} onSelect={onChangeBoss} className="flowBossDropdown">
               {bossOptionArray}
             </Select>
             <div className="flowRangePickerTitle"> 기간 선택 </div>
-            <Select defaultValue={flowRange.current} onSelect={onChangeRange} style={{width: 120}} className="flowRangeDropdown">
+            <Select defaultValue={flowRange.current} onSelect={onChangeRange} className="flowRangeDropdown">
               {rangeOptionArray}
             </Select>
-            <Button type="primary" shape="round" icon={<SearchOutlined />} onClick={onSettingOption} size='default'>
+            <Button type="primary" shape="round" icon={<SearchOutlined />} onClick={onSettingOption} size='default' className="optionButton">
               보기
             </Button>
           </Content>
