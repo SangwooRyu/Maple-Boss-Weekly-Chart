@@ -1,7 +1,7 @@
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { useEffect, useState } from 'react';
 
-function Graph(props){
+function FlowGraph(props){
     const data = {
         labels: Object.keys(props.input),
         datasets: [
@@ -32,8 +32,8 @@ function Graph(props){
     }, [props.input]);
 
     return(
-        <Bar data={data} options={options} />
+        <Line data={data} options={options} />
     );
 }
 
-export default Graph;
+export default FlowGraph;

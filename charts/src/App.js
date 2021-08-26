@@ -4,7 +4,7 @@ import FlowGraphsPage from './page/FlowGraphsPage';
 import moment from 'moment';
 import labels from "./page/ko-map.json";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { message, Layout, Menu, DatePicker, Select, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -30,10 +30,13 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [date, setDate] = useState(null);
   const [tab, setTab] = useState('weekly');
-  const [boss, setBoss] = useState('선택하세요');
-  const [flowRange, setFlowRange] = useState('선택하세요');
-  const [displayFlow, setDisplayFlow] = useState(false);
+  //const [boss, setBoss] = useState('선택하세요');
+  //const [flowRange, setFlowRange] = useState('선택하세요');
+  const [passingOption, setPassingOption] = useState([]);
   // all, prev1mon, prev3mon, prev6mon, prev1year, prev3year
+  const [displayFlow, setDisplayFlow] = useState(false);
+  const boss = useRef('선택하세요');
+  const flowRange = useRef('선택하세요');
 
   function onChangeTab(selected) {
     setLoading(true);
@@ -52,28 +55,31 @@ function App() {
 
   function onChangeBoss(value){
     //console.log(value);
-    setBoss(value);
+    //setBoss(value);
+    boss.current = value;
   }
 
   function onChangeRange(value){
     //console.log(value);
-    setFlowRange(value);
+    //setFlowRange(value);
+    flowRange.current = value;
   }
 
   function onSettingOption(){
-    if(boss === '선택하세요'){
+    if(boss.current === '선택하세요'){
       message.error('보스를 선택하세요');
       return;
     }
-    else if (flowRange === '선택하세요'){
+    else if (flowRange.current === '선택하세요'){
       message.error('기간을 선택하세요');
       return;
     }
     else {
-      setLoading(true);
+      //setLoading(true);
       setDisplayFlow(true);
-      console.log(`Selected Boss is ${boss}, Selected Range is ${flowRange}`);
-      setLoading(false);
+      setPassingOption([boss.current, flowRange.current]);
+      //console.log(`Selected Boss is ${boss}, Selected Range is ${flowRange}`);
+      //setLoading(false);
     }
 
   }
@@ -111,11 +117,11 @@ function App() {
         <>
           <Content className="flowOptionPicker">
             <div className="flowBossPickerTitle"> 보스 선택 </div>
-            <Select defaultValue={boss} onSelect={onChangeBoss} style={{width: 200}} className="flowBossDropdown">
+            <Select defaultValue={boss.current} onSelect={onChangeBoss} style={{width: 200}} className="flowBossDropdown">
               {bossOptionArray}
             </Select>
             <div className="flowRangePickerTitle"> 기간 선택 </div>
-            <Select defaultValue={flowRange} onSelect={onChangeRange} style={{width: 120}} className="flowRangeDropdown">
+            <Select defaultValue={flowRange.current} onSelect={onChangeRange} style={{width: 120}} className="flowRangeDropdown">
               {rangeOptionArray}
             </Select>
             <Button type="primary" shape="round" icon={<SearchOutlined />} onClick={onSettingOption} size='default'>
@@ -126,7 +132,7 @@ function App() {
             <div className="site-layout-content">
               {
                 displayFlow?
-                <FlowGraphsPage boss={boss} range={flowRange}/> : null
+                <FlowGraphsPage boss={passingOption[0]} range={passingOption[1]}/> : null
               }
             </div> 
           </Content>

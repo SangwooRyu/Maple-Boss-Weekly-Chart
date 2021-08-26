@@ -18,10 +18,6 @@ function GraphsPage(props){
         return csv;
     }
     
-    function formGraphInput(boss_name) {
-
-    }
-    
     useEffect(() => {
         async function loadCsv() {
             setLoading(true);
@@ -42,7 +38,7 @@ function GraphsPage(props){
                 if (value[0] === "Boss" || value[0] === "")
                     return pre;
                 else
-                    pre.push([labels[value[0]], parseInt(value[1])])
+                    pre.push([labels[value[0]], parseInt(value[1])]);
                 return pre;
             }, []);
             //console.log(refined_data);
