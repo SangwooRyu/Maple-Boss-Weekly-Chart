@@ -24,7 +24,7 @@ function GraphsPage(props){
             var prevThursday = props.date.toDate();
             prevThursday.setDate(prevThursday.getDate() - (prevThursday.getDay() + 3) % 7);
             let year = prevThursday.getFullYear().toString();
-            let month = prevThursday.getMonth() < 10? '0' + (prevThursday.getMonth() + 1).toString() : (prevThursday.getMonth() + 1).toString();
+            let month = prevThursday.getMonth() < 9? '0' + (prevThursday.getMonth() + 1).toString() : (prevThursday.getMonth() + 1).toString();
             let date = prevThursday.getDate() < 10? '0' + prevThursday.getDate().toString() : prevThursday.getDate().toString();
             
             let targetFileName = year + month + date;
